@@ -6,7 +6,7 @@ function App() {
 
   const getData = () => {
     console.log('Teste');
-    fetch('https://localhost:5000/api/values')
+    fetch('localhost:5000/api/values')
                     .then((response) => {
                       response.json().then(data => {
                         console.log(data);
