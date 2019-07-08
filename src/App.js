@@ -6,7 +6,7 @@ function App() {
 
   const getData = () => {
     console.log('Teste');
-    fetch('api/values')
+    fetch('https://admin-react-api.lkameya.com/api/values')
                     .then((response) => {
                       response.json().then(data => {
                         console.log(data);

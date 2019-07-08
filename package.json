@@ -9,7 +9,6 @@
   "devDependencies": {
     "react-scripts": "3.0.1"
   },
-  "proxy": "https://lkameya.com:5000/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
