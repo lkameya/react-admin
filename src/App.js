@@ -6,12 +6,11 @@ function App() {
 
   const getData = () => {
     fetch('https://admin-react-api.lkameya.com/values')
-                    .then((response) => {
-                      response.json().then(data => {
-                        console.log(data);
-                      });
-                    });
-                    
+      .then((response) => {
+        response.json().then(data => {
+          console.log(data);
+        });
+      });
   }
 
   return (
