@@ -5,7 +5,6 @@ import './App.css';
 function App() {
 
   const getData = () => {
-    console.log('Teste2');
     fetch('https://admin-react-api.lkameya.com/values')
                     .then((response) => {
                       response.json().then(data => {
