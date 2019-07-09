@@ -1,11 +1,18 @@
+# build environment
 FROM mhart/alpine-node:11 AS builder
-WORKDIR /app
-COPY . .
-RUN yarn add react-scripts --silent
-RUN yarn run build
+RUN mkdir /usr/src/app
+WORKDIR /usr/src/app
+ENV PATH /usr/src/app/node_modules/.bin:$PATH
+COPY ./package.json /usr/src/app/package.json
+RUN yarn
+COPY . /usr/src/app
+RUN yarn build
 
-FROM mhart/alpine-node
-RUN yarn global add serve
-WORKDIR /app
-COPY --from=builder /app/build .
-CMD ["serve", "-p", "3000", "-s", "."]
+# production environment
+FROM nginx:1.13.9-alpine
+RUN rm -rf /etc/nginx/conf.d
+RUN mkdir -p /etc/nginx/conf.d
+COPY ./default.conf etc/nginx/conf.d
+COPY --from=builder /usr/src/app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
