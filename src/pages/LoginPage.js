@@ -15,6 +15,10 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import { withRouter } from 'react-router-dom';
 
 const styles = theme => ({
+  container: {
+    height: '100%',
+    background: 'linear-gradient(to right bottom, #534fea 0%, #3f6ef3 40%, #a56aee)',
+  },
   main: {
     width: 'auto',
     display: 'block', // Fix IE 11 issue.
@@ -25,17 +29,18 @@ const styles = theme => ({
       marginLeft: 'auto',
       marginRight: 'auto',
     },
+    overflow: 'auto',
   },
   paper: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(25),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    padding: `${theme.spacing(2)}px ${theme.spacing(3)}px ${theme.spacing(3)}px`,
+    padding: `${theme.spacing(2.5)}px ${theme.spacing(3.5)}px ${theme.spacing(3.5)}px`,
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: '#534fea',
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -51,41 +56,43 @@ function LoginPage(props) {
   const { push } = props.history;
 
   return (
-    <main className={classes.main}>
-      <CssBaseline />
-      <Paper className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <VpnKey />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Admin React
+    <div className={classes.container}>
+      <main className={classes.main}>
+        <CssBaseline />
+        <Paper className={classes.paper} square elevation={24}>
+          <Avatar className={classes.avatar}>
+            <VpnKey />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Admin React
         </Typography>
-        <form className={classes.form}>
-          <FormControl margin="normal" required fullWidth>
-            <InputLabel htmlFor="email">Login</InputLabel>
-            <Input id="email" name="email" autoComplete="email" autoFocus />
-          </FormControl>
-          <FormControl margin="normal" required fullWidth>
-            <InputLabel htmlFor="password">Senha</InputLabel>
-            <Input name="password" type="password" id="password" autoComplete="current-password" />
-          </FormControl>
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Lembrar-me"
-          />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-            onClick={() => push('/home')}
-          >
-            Entrar
+          <form className={classes.form}>
+            <FormControl margin="normal" required fullWidth>
+              <InputLabel htmlFor="email">Login</InputLabel>
+              <Input id="email" name="email" autoComplete="email" autoFocus />
+            </FormControl>
+            <FormControl margin="normal" required fullWidth>
+              <InputLabel htmlFor="password">Password</InputLabel>
+              <Input name="password" type="password" id="password" autoComplete="current-password" />
+            </FormControl>
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember-me"
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+              onClick={() => push('/home')}
+            >
+              Enter
           </Button>
-        </form>
-      </Paper>
-    </main>
+          </form>
+        </Paper>
+      </main>
+    </div>
   );
 }
 
