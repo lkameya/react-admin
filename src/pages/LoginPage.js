@@ -67,11 +67,11 @@ function LoginPage(props) {
             Admin React
         </Typography>
           <form className={classes.form}>
-            <FormControl margin="normal" required fullWidth>
+            <FormControl margin="normal" fullWidth>
               <InputLabel htmlFor="email">Login</InputLabel>
               <Input id="email" name="email" autoComplete="email" autoFocus />
             </FormControl>
-            <FormControl margin="normal" required fullWidth>
+            <FormControl margin="normal" fullWidth>
               <InputLabel htmlFor="password">Password</InputLabel>
               <Input name="password" type="password" id="password" autoComplete="current-password" />
             </FormControl>
