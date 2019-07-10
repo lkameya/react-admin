@@ -27,7 +27,7 @@
   },
   "config": {
     "ghooks": {
-      "post-receive": "yarn deploy"
+      "pre-commit": "yarn deploy"
     }
   },
   "eslintConfig": {
