@@ -23,11 +23,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "yarn build && tar -cvf ./deploy.tar --exclude='*.map' ./captain-definition ./build/* && caprover deploy -t ./deploy.tar"
+    "deploy": "yarn test && yarn build && tar -cvf ./deploy.tar --exclude='*.map' ./captain-definition ./build/* && caprover deploy -t ./deploy.tar"
   },
   "config": {
     "ghooks": {
-      "update": "yarn deploy"
+      "pre-push": "yarn deploy"
     }
   },
   "eslintConfig": {
