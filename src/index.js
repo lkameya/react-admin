@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import AppRouter from './routes/AppRouter';
-import store from 'store';
+import store from './store';
 
 const rootElement = document.getElementById('root');
 
