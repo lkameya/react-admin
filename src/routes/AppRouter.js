@@ -1,23 +1,27 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Layout from 'components/_UI/Layout';
-import HomePage from 'pages/HomePage';
-import LoginPage from 'pages/LoginPage';
-import NotFoundPage from 'pages/NotFoundPage';
+import HomePage from 'containers/HomePage';
+import LoginPage from 'containers/LoginPage';
+import NotFoundPage from 'containers/NotFoundPage';
 import PublicRoute from './PublicRouter';
+import UserPage from 'containers/UserPage';
 
-const AppRouter = () => (
-  <BrowserRouter>
-    <Switch>
-      <Route path="/" component={LoginPage} exact={true} />
-      <Layout>
-        <Switch>
-          <PublicRoute path="/home" component={HomePage} exact={true} />
-          <Route component={NotFoundPage} />
-        </Switch>
-      </Layout>
-    </Switch>
-  </BrowserRouter>
-);
+function AppRouter() {
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" component={LoginPage} exact={true} />
+        <Layout>
+          <Switch>
+            <PublicRoute path="/home" component={HomePage} exact={true} />
+            <PublicRoute path="/users" component={UserPage} exact={true} />
+            <Route component={NotFoundPage} />
+          </Switch>
+        </Layout>
+      </Switch>
+    </BrowserRouter>
+  );
+}
 
 export default AppRouter;

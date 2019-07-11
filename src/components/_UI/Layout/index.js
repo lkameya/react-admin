@@ -148,7 +148,6 @@ class Layout extends React.Component {
               </Badge>
             </IconButton>
           </Toolbar>
-          {/* {loading && <LinearProgress color="secondary" />} */}
         </AppBar>
         <Drawer
           variant="permanent"

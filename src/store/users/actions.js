@@ -1,4 +1,4 @@
 import { action } from 'typesafe-actions';
-import { UsuarioTypes } from './types';
+import { UserTypes } from './types';
 
-export const loadUsersRequest = () => action(UsuarioTypes.LOAD_REQUEST);
+export const loadUsersRequest = () => action(UserTypes.LOAD_REQUEST);
