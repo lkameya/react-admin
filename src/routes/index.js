@@ -1,7 +1,9 @@
 import {
-  Dashboard
+  Dashboard,
+  Assignment
 } from '@material-ui/icons';
-import HomePage from 'pages/HomePage';
+import HomePage from 'containers/HomePage';
+import UserPage from 'containers/UserPage';
 
 const Routes = [
   {
@@ -9,6 +11,12 @@ const Routes = [
     icon: Dashboard,
     path: '/home',
     component: HomePage,
+  },
+  {
+    name: 'Basic CRUD',
+    icon: Assignment,
+    path: '/users',
+    component: UserPage,
   },
 ];
 
