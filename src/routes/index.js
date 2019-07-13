@@ -2,8 +2,8 @@ import {
   Dashboard,
   Assignment
 } from '@material-ui/icons';
-import HomePage from 'containers/HomePage';
-import UserPage from 'containers/UserPage';
+import HomePage from 'containers/Home';
+import UserPage from 'containers/User/List';
 
 const Routes = [
   {

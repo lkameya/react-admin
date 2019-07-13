@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Layout from 'components/_UI/Layout';
-import HomePage from 'containers/HomePage';
-import LoginPage from 'containers/LoginPage';
-import NotFoundPage from 'containers/NotFoundPage';
+import HomePage from 'containers/Home';
+import LoginPage from 'containers/Login';
+import NotFoundPage from 'containers/NotFound';
 import PublicRoute from './PublicRouter';
-import UserPage from 'containers/UserPage';
+import UserList from 'containers/User/List';
 
 function AppRouter() {
   return (
@@ -15,7 +15,7 @@ function AppRouter() {
         <Layout>
           <Switch>
             <PublicRoute path="/home" component={HomePage} exact={true} />
-            <PublicRoute path="/users" component={UserPage} exact={true} />
+            <PublicRoute path="/users" component={UserList} exact={true} />
             <Route component={NotFoundPage} />
           </Switch>
         </Layout>

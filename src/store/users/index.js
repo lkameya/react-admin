@@ -1,26 +1,23 @@
 import { UserTypes } from './types';
 
 const INITIAL_STATE = {
-  data: [], // Usuarios
+  data: [],
   initialvalues: {
-    idUsuario: 0,
-    loginUsuario: '',
-    nomeUsuario: '',
-    emailUsuario: '',
-    pswUsuario: ''
+    id: 0,
+    username: '',
   },
-  error: false, // Retorna erro em alguma requisição 
-  loading: false, // Controla o carregamento dos usuários na tela de exibição
-  pendingAction: false, // Controla alguma ação realizada pelo usuário 
-  activeModal: false, // Controla a modal de formulário na inserção e edição do registro
-  feedback: false,
-  loadingModal: false,
+  loading: false,
+  error: false,
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case UserTypes.LOAD_REQUEST:
       return { ...state, loading: true };
+    case UserTypes.LOAD_SUCCESS:
+      return { ...state, loading: false};
+    case UserTypes.LOAD_FAIL:
+      return { ...state, loading: false, error: true, errorMessage: action.payload};
     default:
       return state;
   }
